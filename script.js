@@ -104,7 +104,7 @@ window.addEventListener("load", function () {
   
     if (fuelLevel < 10000) {
       fuelStatus.textContent = 'Fuel level too low for launch';
-      fuelStatus.style.color = 'red';
+      fuelStatus.style.color = 'rgb(199, 37, 78)';
       isReadyForLaunch = false;
     } else {
       fuelStatus.textContent = 'Fuel level high enough for launch';
@@ -113,7 +113,7 @@ window.addEventListener("load", function () {
   
     if (cargoLevel > 10000) {
       cargoStatus.textContent = 'Cargo mass too heavy for launch';
-      cargoStatus.style.color = 'red';
+      cargoStatus.style.color = 'rgb(199, 37, 78)';
       isReadyForLaunch = false;
     } else {
       cargoStatus.textContent = 'Cargo mass low enough for launch';
@@ -124,10 +124,10 @@ window.addEventListener("load", function () {
   
     if (isReadyForLaunch) {
       launchStatus.textContent = 'Shuttle is Ready for Launch';
-      launchStatus.style.color = 'green';
+      launchStatus.style.color = 'rgb(65, 159, 106)';
     } else {
       launchStatus.textContent = 'Shuttle Not Ready for Launch';
-      launchStatus.style.color = 'red';
+      launchStatus.style.color = 'rgb(199, 37, 78)';
     }
   
     faultyItems.style.visibility = 'visible';
