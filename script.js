@@ -117,7 +117,7 @@ window.addEventListener("load", function () {
       isReadyForLaunch = false;
     } else {
       cargoStatus.textContent = 'Cargo mass low enough for launch';
-      cargoStatus.style.color = 'inital';
+      cargoStatus.style.color = 'initial';
     }
   
     const launchStatus = document.getElementById('launchStatus');
@@ -129,6 +129,12 @@ window.addEventListener("load", function () {
       launchStatus.textContent = 'Shuttle Not Ready for Launch';
       launchStatus.style.color = 'red';
     }
-
+  
+    faultyItems.style.visibility = 'visible';
+  
+    pilotNameInput.value = '';
+    coPilotNameInput.value = '';
+    fuelLevelInput.value = '';
+    cargoMassInput.value = '';
   }
   
