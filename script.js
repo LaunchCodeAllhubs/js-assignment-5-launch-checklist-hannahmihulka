@@ -22,6 +22,7 @@ window.addEventListener("load", function () {
   
       if (pilotName.trim() === "" || coPilotName.trim() === "" || isNaN(fuelLevel) || isNaN(cargoMass)) {
         alert("Please fill out all fields correctly.");
+        faultyItems.style.visibility = 'visible';
         return;
       }
   
@@ -103,16 +104,20 @@ window.addEventListener("load", function () {
   
     if (fuelLevel < 10000) {
       fuelStatus.textContent = 'Fuel level too low for launch';
+      fuelStatus.style.color = 'red';
       isReadyForLaunch = false;
     } else {
       fuelStatus.textContent = 'Fuel level high enough for launch';
+      fuelStatus.style.color = 'initial';
     }
   
     if (cargoLevel > 10000) {
-      cargoStatus.textContent = 'Cargo mass too high for launch';
+      cargoStatus.textContent = 'Cargo mass too heavy for launch';
+      cargoStatus.style.color = 'red';
       isReadyForLaunch = false;
     } else {
       cargoStatus.textContent = 'Cargo mass low enough for launch';
+      cargoStatus.style.color = 'inital';
     }
   
     const launchStatus = document.getElementById('launchStatus');
@@ -124,7 +129,6 @@ window.addEventListener("load", function () {
       launchStatus.textContent = 'Shuttle Not Ready for Launch';
       launchStatus.style.color = 'red';
     }
-  
-    faultyItems.style.visibility = 'visible';
+
   }
   
