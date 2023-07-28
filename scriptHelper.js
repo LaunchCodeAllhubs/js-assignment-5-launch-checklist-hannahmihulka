@@ -43,6 +43,57 @@ function pickPlanet(planets) {
     return planets[randomIndex];
 }
 
+function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+    // Update pilot and co-pilot names in the list
+    const pilotStatus = document.getElementById('pilotStatus');
+    const copilotStatus = document.getElementById('copilotStatus');
+    pilotStatus.textContent = `Pilot ${pilot} is ready for launch`;
+    copilotStatus.textContent = `Co-pilot ${copilot} is ready for launch`;
+  
+    // Check if fuel level and cargo mass are within the correct range
+    const fuelStatus = document.getElementById('fuelStatus');
+    const cargoStatus = document.getElementById('cargoStatus');
+    let isReadyForLaunch = true;
+  
+    if (fuelLevel < 10000) {
+      fuelStatus.textContent = 'Fuel level too low for launch';
+      isReadyForLaunch = false;
+    } else {
+      fuelStatus.textContent = 'Fuel level high enough for launch';
+    }
+  
+    if (cargoLevel > 10000) {
+      cargoStatus.textContent = 'Cargo mass too high for launch';
+      isReadyForLaunch = false;
+    } else {
+      cargoStatus.textContent = 'Cargo mass low enough for launch';
+    }
+  
+    // Update shuttle readiness status message and CSS based on fuel and cargo status
+    const launchStatus = document.getElementById('launchStatus');
+    const faultyItems = document.getElementById('faultyItems');
+  
+    if (isReadyForLaunch) {
+      launchStatus.textContent = 'Shuttle is Ready for Launch';
+      launchStatus.style.color = 'green';
+    } else {
+      launchStatus.textContent = 'Shuttle Not Ready for Launch';
+      launchStatus.style.color = 'red';
+    }
+  
+    faultyItems.style.visibility = 'visible';
+  
+    
+    document.getElementById('pilotName').value = '';
+    document.querySelector('input[name="copilotName"]').value = '';
+    document.querySelector('input[name="fuelLevel"]').value = '';
+    document.querySelector('input[name="cargoMass"]').value = '';
+  }
+  
+
+  module.exports.formSubmission = formSubmission;
+  
+
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
 module.exports.formSubmission = formSubmission;
