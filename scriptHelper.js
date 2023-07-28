@@ -31,10 +31,10 @@ function validateInput(testInput) {
 
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    const pilotStatus = list.querySelector('#pilotStatus');
-    const coPilotStatus = list.querySelector('#copilotStatus');
-    const fuelStatus = list.querySelector('#fuelStatus');
-    const cargoStatus = list.querySelector('#cargoStatus');
+    const pilotStatus = document.querySelector('#pilotStatus');
+    const coPilotStatus = document.querySelector('#copilotStatus');
+    const fuelStatus = document.querySelector('#fuelStatus');
+    const cargoStatus = document.querySelector('#cargoStatus');
     const launchStatus = document.getElementById('launchStatus');
     const faultyItems = document.getElementById('faultyItems');
 
@@ -93,21 +93,25 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
             faultyItems.style.visibility = 'hidden';
         }
     }
-
-async function myFetch() {
-    let planetsReturned;
-
-    planetsReturned = await fetch().then( function(response) {
-        });
-
-    return planetsReturned;
-}
-
-function pickPlanet(planets) {
-}
-
-module.exports.addDestinationInfo = addDestinationInfo;
-module.exports.validateInput = validateInput;
-module.exports.formSubmission = formSubmission;
-module.exports.pickPlanet = pickPlanet; 
-module.exports.myFetch = myFetch; 
+    async function myFetch() {
+        try {
+          const response = await fetch('https://handlers.education.launchcode.org/static/planets.json');
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.error('Error fetching planetary data:', error);
+          throw error;
+        }
+      }
+      
+      function pickPlanet(planets) {
+        const randomIndex = Math.floor(Math.random() * planets.length);
+        return planets[randomIndex];
+      }
+    } 
+      
+      module.exports.addDestinationInfo = addDestinationInfo;
+      module.exports.validateInput = validateInput;
+      module.exports.formSubmission = formSubmission;
+      module.exports.pickPlanet = pickPlanet;
+      module.exports.myFetch = myFetch; 
