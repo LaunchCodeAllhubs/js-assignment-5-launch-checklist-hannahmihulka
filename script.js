@@ -108,7 +108,7 @@ window.addEventListener("load", function () {
       isReadyForLaunch = false;
     } else {
       fuelStatus.textContent = 'Fuel level high enough for launch';
-      fuelStatus.style.color = 'initial';
+      fuelStatus.style.color = 'rgb(65, 159, 106)';
     }
   
     if (cargoLevel > 10000) {
@@ -117,7 +117,7 @@ window.addEventListener("load", function () {
       isReadyForLaunch = false;
     } else {
       cargoStatus.textContent = 'Cargo mass low enough for launch';
-      cargoStatus.style.color = 'initial';
+      cargoStatus.style.color = 'rgb(65, 159, 106)';
     }
   
     const launchStatus = document.getElementById('launchStatus');
