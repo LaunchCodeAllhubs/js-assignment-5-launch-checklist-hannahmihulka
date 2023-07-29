@@ -63,7 +63,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     }
   
     if (cargoLevel > 10000) {
-      cargoStatus.textContent = 'Cargo mass too high for launch';
+      cargoStatus.textContent = 'Cargo mass too heavy for launch';
       isReadyForLaunch = false;
     } else {
       cargoStatus.textContent = 'Cargo mass low enough for launch';
