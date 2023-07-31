@@ -50,7 +50,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     pilotStatus.textContent = `Pilot ${pilot} is ready for launch`;
     copilotStatus.textContent = `Co-pilot ${copilot} is ready for launch`;
   
-    // Check if fuel level and cargo mass are within the correct range
+   
     const fuelStatus = document.getElementById('fuelStatus');
     const cargoStatus = document.getElementById('cargoStatus');
     let isReadyForLaunch = true;
