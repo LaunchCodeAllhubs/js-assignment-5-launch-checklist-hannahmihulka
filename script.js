@@ -11,7 +11,9 @@ window.addEventListener("load", function () {
     const cargoStatus = document.getElementById('cargoStatus');
     const faultyItems = document.getElementById('faultyItems');
     const missionTarget = document.getElementById('missionTarget');
-  
+    
+    faultyItems.style.visibility = 'hidden';
+
     launchForm.addEventListener('submit', function (event) {
       event.preventDefault();
   
